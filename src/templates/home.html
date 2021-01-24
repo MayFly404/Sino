@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Home Sino</title>
+ <script>
+  function addItem() {
+   var newItem = document.createElement("div");
+   newItem.innerHTML = document.getElementById("box").value;
+   newItem.onclick = removeItem;
+   document.getElementById("list").appendChild(newItem);
+   saveList();
+  }
+  function removeItem() {
+   document.getElementById("list").removeChild(this);
+   saveList();
+  }
+  function saveList() {
+   localStorage.storedList = document.getElementById("list").innerHTML;
+  }
+  function loadList() {
+   document.getElementById("list").innerHTML = localStorage.storedList;
+   for(var i = 0; i < list.children.length; i++) {
+    list.children[i].onclick = removeItem;
+   }
+  }
+ </script>
+ <style>
+  .app {
+    height:400px;
+    width: 350px;
+    background-color: lightgreen;
+    text-align: center;
+    float: right;
+    padding:10px;
+    margin:20px;
+  }
+  input[type="button"] {
+   background-color: pink;
+  }
+  .updates {
+    margin: 30px;
+  }
+ </style>
+</head>
+<body>
+  <div class="updates">
+    <h1>Updates</h1>
+    <p>None</p>
+  </div>
+
+ <div class="app">
+  <input type="text" id="box" value="Type here to message"/>
+  <input type="button" value="Send" onclick="addItem();"/>
+  <br/>
+   <div id="list"></div>
+ </div>
+ <script>
+  if(localStorage.storedList) {
+   loadList();
+  }
+ </script>
+</body>
+</html>

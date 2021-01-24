@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Login page</title>
+
+   <script type="text/javascript">
+      function checkPswd() {
+          var confirmPassword = "Sino711";
+          var password = document.getElementById("pswd").value;
+          if (password == confirmPassword) {
+               window.location = "templates/home.html";
+          }
+          else{
+              alert("Access Denied!");
+          }
+      }
+   </script>
+   <style>
+     body {
+       background-color: lightblue;
+       padding: 30px;
+       text-align: center;
+     }
+   </style>
+
+</head>
+<body>
+  <div>
+    <p style="font-size: 30pt"><strong>SINO LOGIN</strong></p>
+    <p>Please enter the password to view this website.</p>
+    <p>Enter Password:</p>
+    <input type="password" id="pswd"><br>
+    <input type="button" value="Submit" onclick="checkPswd();" />
+  </div>
+
+</body>
+</html>
